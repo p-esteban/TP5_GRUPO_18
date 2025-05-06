@@ -25,5 +25,7 @@ public class Pelicula {
         return categoria;
     }
 
-   
+    public void setId(int id) {
+        this.id = id;
+    }
 }

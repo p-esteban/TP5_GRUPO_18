@@ -9,7 +9,7 @@ import java.util.List;
 
 public class VentanaAgregar extends JFrame {
 
-    private static int contadorId = 1;
+    private static int contadorId=1;
     private static List<Pelicula> listaPeliculas = new ArrayList<>();
 
     public VentanaAgregar() {
@@ -44,7 +44,7 @@ public class VentanaAgregar extends JFrame {
         comboGenero.addItem(new Categoria("Seleccione un género"));
         comboGenero.addItem(new Categoria("Terror"));
         comboGenero.addItem(new Categoria("Acción"));
-        comboGenero.addItem(new Categoria("Suspenso"));
+        comboGenero.addItem(new Categoria("Suspenso")); 
         comboGenero.addItem(new Categoria("Romántica"));
         comboGenero.setBounds(150, 100, 200, 20);
         add(comboGenero);
@@ -62,11 +62,14 @@ public class VentanaAgregar extends JFrame {
                 if (!nombrePelicula.isEmpty()) {
                     if (comboGenero.getSelectedIndex() != 0) {
                         Pelicula peli = new Pelicula();
+                        peli.setId(contadorId);
                         peli.setNombre(nombrePelicula);
                         peli.setCategoria(generoSeleccionado);
                         
                         JOptionPane.showMessageDialog(null, "Película guardada correctamente.");
                         listaPeliculas.add(peli);
+                        contadorId++;
+                        txtId.setText(String.valueOf(contadorId));
                         
                         txtNombre.setText("");
                         comboGenero.setSelectedIndex(0);

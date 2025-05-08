@@ -2,6 +2,8 @@ package tp5_grupo18;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,12 +40,12 @@ public class VentanaAgregar extends JFrame {
         lblGenero.setBounds(30, 100, 100, 20);
         add(lblGenero);
 
-        JComboBox<String> comboGenero = new JComboBox<>();
-        comboGenero.addItem("Seleccione un género");
-        comboGenero.addItem("Terror");
-        comboGenero.addItem("Acción");
-        comboGenero.addItem("Suspenso");
-        comboGenero.addItem("Romántica");
+        JComboBox<Categoria> comboGenero = new JComboBox<>();
+        comboGenero.addItem(new Categoria("Seleccione un género"));
+        comboGenero.addItem(new Categoria("Terror"));
+        comboGenero.addItem(new Categoria("Acción"));
+        comboGenero.addItem(new Categoria("Suspenso"));
+        comboGenero.addItem(new Categoria("Romántica"));
         comboGenero.setBounds(150, 100, 200, 20);
         add(comboGenero);
 
@@ -51,6 +53,31 @@ public class VentanaAgregar extends JFrame {
         btnAceptar.setBounds(150, 140, 100, 30);
         add(btnAceptar);
 
+        btnAceptar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String nombrePelicula = txtNombre.getText().trim();
+                Categoria generoSeleccionado = (Categoria) comboGenero.getSelectedItem();
+
+                if (!nombrePelicula.isEmpty()) {
+                    if (comboGenero.getSelectedIndex() != 0) {
+                        Pelicula peli = new Pelicula();
+                        peli.setNombre(nombrePelicula);
+                        peli.setCategoria(generoSeleccionado);
+                        
+                        JOptionPane.showMessageDialog(null, "Película guardada correctamente.");
+
+                        txtNombre.setText("");
+                        comboGenero.setSelectedIndex(0);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Debe seleccionar un género válido.", "Error", JOptionPane.WARNING_MESSAGE);
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Debe ingresar un nombre.", "Error", JOptionPane.WARNING_MESSAGE);
+                }
+
+            }
+        });
    
     }
 

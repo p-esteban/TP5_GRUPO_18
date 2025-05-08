@@ -7,6 +7,11 @@ public class Pelicula {
     private String nombre;
     private Categoria categoria;
 
+    public Pelicula() {
+        
+        nombre = "Sin nombre";
+    }
+    
     public Pelicula(String nombre, Categoria categoria) {
         
         this.nombre = nombre;
@@ -28,4 +33,12 @@ public class Pelicula {
     public void setId(int id) {
         this.id = id;
     }
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 }

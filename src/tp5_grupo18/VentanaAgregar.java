@@ -66,7 +66,8 @@ public class VentanaAgregar extends JFrame {
                         peli.setCategoria(generoSeleccionado);
                         
                         JOptionPane.showMessageDialog(null, "Película guardada correctamente.");
-
+                        listaPeliculas.add(peli);
+                        
                         txtNombre.setText("");
                         comboGenero.setSelectedIndex(0);
                     } else {

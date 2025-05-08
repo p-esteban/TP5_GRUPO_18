@@ -24,6 +24,8 @@ public class MenuPrincipal extends JFrame {
 
    
         itemListar.addActionListener(e -> {
+            VentanaListar ventana = new VentanaListar();
+            ventana.setVisible(true);
         });
 
         menuPeliculas.add(itemAgregar);

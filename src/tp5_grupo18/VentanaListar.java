@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JList;
 import javax.swing.JLabel;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.event.ListSelectionEvent;
 
 
 public class VentanaListar extends JFrame {
@@ -34,7 +36,7 @@ public class VentanaListar extends JFrame {
 
 
 	public VentanaListar() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -43,6 +45,9 @@ public class VentanaListar extends JFrame {
 		contentPane.setLayout(null);
 		
 		JList<String> list = new JList<String>();
+	
+		
+		
 		list.setBounds(10, 36, 414, 214);
 		contentPane.add(list);
 		
@@ -58,5 +63,6 @@ public class VentanaListar extends JFrame {
 		JLabel lblNewLabel = new JLabel("Listar Peliculas:");
 		lblNewLabel.setBounds(10, 11, 126, 14);
 		contentPane.add(lblNewLabel);
+		
 	}
 }

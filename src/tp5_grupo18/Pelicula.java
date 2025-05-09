@@ -12,7 +12,16 @@ public class Pelicula {
         nombre = "Sin nombre";
     }
     
-    public Pelicula(String nombre, Categoria categoria) {
+    
+    
+    @Override
+	public String toString() {
+		return nombre+"-"+categoria;
+	}
+
+
+
+	public Pelicula(String nombre, Categoria categoria) {
         
         this.nombre = nombre;
         this.categoria = categoria;

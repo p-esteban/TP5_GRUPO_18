@@ -14,9 +14,9 @@ public class MenuPrincipal extends JFrame {
 	        setSize(400, 300);
 	        setLocationRelativeTo(null);
 	        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	        setLayout(new BorderLayout()); // importante: usar BorderLayout
+	        setLayout(new BorderLayout()); 
 
-	        // Panel de contenido que se va a ir reemplazando
+	   
 	        contentPanel = new JPanel();
 	        add(contentPanel, BorderLayout.CENTER);
 
@@ -41,7 +41,6 @@ public class MenuPrincipal extends JFrame {
 	    }
 
 	    private void setContentPanel(JPanel panel) {
-	        // Reemplaza el panel actual con uno nuevo
 	        getContentPane().remove(contentPanel);
 	        contentPanel = panel;
 	        getContentPane().add(contentPanel, BorderLayout.CENTER);

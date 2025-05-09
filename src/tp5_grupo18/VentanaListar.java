@@ -15,54 +15,33 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.event.ListSelectionEvent;
 
 
-public class VentanaListar extends JFrame {
+public class VentanaListar extends JPanel {
 
-	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+    private static final long serialVersionUID = 1L;
 
+    public VentanaListar() {
+        setBorder(new EmptyBorder(5, 5, 5, 5));
+        setLayout(null);
+        setBounds(10, 11, 70, 33);
 
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					VentanaListar frame = new VentanaListar();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+        JLabel lblNewLabel = new JLabel("Listar Películas:");
+        lblNewLabel.setBounds(10, 11, 126, 14);
+        add(lblNewLabel);
 
+        JList<String> list = new JList<>();
+        list.setBounds(10, 36, 350, 150);
+        add(list);
 
-	public VentanaListar() {
-		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        // Cargar las películas
+        DefaultListModel<String> modelo = new DefaultListModel<>();
+        List<Pelicula> peliculasOrdenadas = new ArrayList<>(VentanaAgregar.getPeliculas());
+        peliculasOrdenadas.sort(Comparator.comparing(Pelicula::getNombre));
 
-		setContentPane(contentPane);
-		contentPane.setLayout(null);
-		
-		JList<String> list = new JList<String>();
-	
-		
-		
-		list.setBounds(10, 36, 414, 214);
-		contentPane.add(list);
-		
-		DefaultListModel<String> modelo = new DefaultListModel<>();
-		List<Pelicula> peliculasOrdenadas = new ArrayList<>(VentanaAgregar.getPeliculas());
-		peliculasOrdenadas.sort(Comparator.comparing(Pelicula::getNombre));
-		for (Pelicula p : peliculasOrdenadas) {
-		    modelo.addElement(p.getNombre() + " - " + p.getCategoria().getNombre());
-		}
-		list.setModel(modelo);
+        for (Pelicula p : peliculasOrdenadas) {
+            modelo.addElement(p.getNombre() + " - " + p.getCategoria().getNombre());
+        }
 
-		
-		JLabel lblNewLabel = new JLabel("Listar Peliculas:");
-		lblNewLabel.setBounds(10, 11, 126, 14);
-		contentPane.add(lblNewLabel);
-		
-	}
+        list.setModel(modelo);
+    }
 }
+

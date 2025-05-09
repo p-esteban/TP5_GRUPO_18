@@ -7,17 +7,15 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class VentanaAgregar extends JFrame {
+public class VentanaAgregar extends JPanel {
 
     private static int contadorId=1;
     private static List<Pelicula> listaPeliculas = new ArrayList<>();
 
     public VentanaAgregar() {
-        setTitle("Agregar Película");
+     
         setSize(400, 250);
-        setLocationRelativeTo(null);
         setLayout(null);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
         JLabel lblId = new JLabel("ID");
         lblId.setBounds(30, 20, 100, 20);
